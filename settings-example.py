@@ -2,17 +2,10 @@
 CLIENT_ID_SRC = '1234567890abcdefg.apps.googleusercontent.com'
 CLIENT_SECRET_SRC = '1a2b3c4f-ABCDEDF-ABC'
 
-CLIENT_ID_DST = '1234567890abcdefg.apps.googleusercontent.com'
-CLIENT_SECRET_DST = '1a2b3c4f-ABCDEDF-ABC'
-
 """Email of the Service Account"""
-SERVICE_ACCOUNT_SRC = '123456789-abcdefg@developer.gserviceaccount.com'
-
 SERVICE_ACCOUNT_DST = '123456789-abcdefg@developer.gserviceaccount.com'
 
 """Path to the Service Account's Private Key file"""
-SERVICE_ACCOUNT_PRIVATE_KEY_SRC = './src-gdrive.p12'
-
 SERVICE_ACCOUNT_PRIVATE_KEY_DST = './dst-gdrive.p12'
 
 # Check https://developers.google.com/drive/scopes for all available scopes
