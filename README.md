@@ -1,106 +1,10 @@
 GDM - Google Drive Migration
 ============================
 
-GDM will help you to migrate your Google Drive documents from one domain to another domain
+GDM will help you to migrate your Google Drive documents from a personal Google Account (e.g your.name@gmail.com) to a GoogleApps domain.
 
 
-### Updates
-
-
-##### + 12/19/2013:
-
-+ Not use "'me' in owners" query when searching for children files of shared folders
-
-
-##### + 12/18/2013:
-
-+ Get user's own files by query:
-
-	> **"'me' in owners"**
-
-+ Add **"'me' in owners"** to query when searching files
-+ Simplify functions's name
-+ **share_files** function returns permission id list and shared files list
-+ Pass shared files list to make_a_copy instead of all files.
-
-
-##### + 12/17/2013:
-
-+ Get files in which the processing user is the owners with query:
-
-	> **"'username@mydomain.com' in owners and trashed = false"**
-
-+ Do not start renaming files process if length of the unique file names is equal the number of files, which mean there is no duplicate file:
-
-	> **len(filename_list) < len(files)**
-
-+ Get parents of a file by fileId
-
-
-##### + 12/15/2013:
-
-+ Test with 876 users and finish migrating in > 2 days
-
-
-##### + 12/12/2013:
-
-+ Catch httplib.BadStatusLine exception on all query functionalities (insert, update, delete...)
-+ Still return the file['id'] if the file existed and newer when copying (for copy permissions)
-+ encode('utf8') when printing out info to console
-
-
-##### + 12/11/2013:
-
-+ Tested with multiple accounts:
-    * Got error 500 when copying file error.csv. OK after re-running the script.
-    * Got error "httplib.BadStatusLine: ''" when copying permissions. Fixed by catch BadStatusLine exception in "search_files".
-
-
-##### + 12/10/2013:
-
-+ Copy unique files and folders (including children files and folders)
-   * skip copying newer existed files / folders
-+ Copy permissions with additionalRoles (commenter)
-+ More console output for debugging
-
-
-##### + 12/09/2013:
-
-+ Rename duplicate files/folders of all users by modified date
-+ Delete file by id
-+ Copy unique file
-+ Processing gdm with condition parameters
-
-
-##### + 12/05/2013:
-
-+ Get accounts which have duplicate files/folders
-
-
-##### + 12/04/2013: Added functionalities:
-
-+ Copy permissions
-+ Copy all permissions of all files
-+ Create drive service with service account
-+ Share files and folders
-+ Disable sharing
-+ Migrate files and folders
-
-
-##### + 12/01/2013: Just add some utilities to manipulate google drive api, such as:
-
-+ authorize app
-+ insert file
-+ retreive files and folders
-+ retreive permissions
-+ insert permission
-+ remove permission
-+ get permission id from email
-+ copy file
-+ create a folder
-
-
-### Requirements
+# Requirements
 
 
 + google-api-python-client==1.2
@@ -109,23 +13,28 @@ GDM will help you to migrate your Google Drive documents from one domain to anot
 + python-dateutil==2.2
 
 
-### Usage
+# Usage
 
 
-##### 1/ Create a virtualenv environment and install requirements:
+## 1/ install requirements:
 
-> **username@user-host**:/path/to/gdm$ virtualenv /home/.venv/your_env
+```
+$ pip install -r requirements.txt
+```
 
-> **username@user-host**:/path/to/gdm$ source /home/.venv/your_env/bin/activate
+## 2/ Create a virtualenv environment and install requirements:
 
-> **(your_env)username@user-host**:/path/to/gdm$ pip install -r requirements.txt
+Before you start you have to create a project on https://console.developers.google.com/ and 
+setup OAuth Authentication. For your personal account you need an Client ID and for the GoogleApps
+account use a service account to access all accounts in your domain. 
 
+## 3/ Run the migration script to start the emails migrations:
 
-##### 2/ Run the migration script to start the emails migrations:
+```
+$ python gdm.py /path/to/email_mapping_list.csv <condition number>
+```
 
-> **(your_env)username@user-host**:/path/to/gdm$ python gdm.py /path/to/email_mapping_list.csv <condition number>
-
-* email_mapping_list.csv (2 columns: src - old domain email address, dest - new domain email address):
+email_mapping_list.csv (2 columns: src - old domain email address, dest - new domain email address):
 
 | src                     | dest                    |
 | ----------------------- | ----------------------- |
@@ -134,12 +43,12 @@ GDM will help you to migrate your Google Drive documents from one domain to anot
 | username3@olddomain.com | username3@newdomain.com |
 
 
-* condition number: all posible numbers are: 
+Condition number: all posible numbers are: 
 
-> 0,1,2,3,4,5,6,7,8,9 or 'all'
+0,1,2,3,4,5,6,7,8,9 or 'all'
 
 
-### Troubleshooting
+# Troubleshooting
 
 + [Cannot use SignedJwtAssertionCredentials?](http://iambusychangingtheworld.blogspot.com/2013/12/google-drive-api-to-use.html)
 + Error When installing PyOpenSSL:
@@ -149,21 +58,19 @@ GDM will help you to migrate your Google Drive documents from one domain to anot
 + [_csv.Error: Could not determine delimiter](http://iambusychangingtheworld.blogspot.com/2013/12/python-csv-error-when-read-data-from.html)
 
 
-### Notes
-
-+ I used only one Service Account because I migrated users's documents from sub.mydomain.com to mydomain.com. So, you need to create 2 Service Accounts, one for your old domain, one for your new domain. Then, you have to modify the gdm.py file to use the correct Service Account for each domain.
-
-
-### References
+# References
 
 
 * [*https://developers.google.com/drive/quickstart-python*](https://developers.google.com/drive/quickstart-python)
 * [*https://developers.google.com/drive/v2/reference/*](https://developers.google.com/drive/v2/reference/)
 
 
-### Contact
+# Contact 
 
-Found bugs or have questions?:
+Email: mail@mschnitzius.com
+Twitter: [@marcschnitzius](https://twitter.com/marcschnitzius)
 
+
+This is a fork of https://github.com/dangtrinh. Thanks for your job :)
 + Email: dangtrinhnt[at]gmail[dot]com - Trinh Nguyen
 + Twitter: [@dangtrinhnt](https://twitter.com/dangtrinhnt)
