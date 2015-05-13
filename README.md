@@ -15,20 +15,20 @@ GDM will help you to migrate your Google Drive documents from a personal Google 
 
 # Usage
 
+Before you start you have to create a project on https://console.developers.google.com/ and 
+setup OAuth Authentication. For your personal account you need an Client ID and for the GoogleApps
+account use a service account to access all accounts in your domain. Also don't forget to actiavte 
+the GoogleDrive API for both accoutns.
 
-## 1/ install requirements:
+
+## install requirements:
 
 ```
 $ pip install -r requirements.txt
 ```
 
-## 2/ Create a virtualenv environment and install requirements:
 
-Before you start you have to create a project on https://console.developers.google.com/ and 
-setup OAuth Authentication. For your personal account you need an Client ID and for the GoogleApps
-account use a service account to access all accounts in your domain. 
-
-## 3/ Run the migration script to start the emails migrations:
+## Run the migration script to start the emails migrations:
 
 ```
 $ python gdm.py /path/to/email_mapping_list.csv <condition number>
@@ -73,4 +73,3 @@ Twitter: [@marcschnitzius](https://twitter.com/marcschnitzius)
 
 This is a fork of https://github.com/dangtrinh. Thanks for your job :)
 + Email: dangtrinhnt[at]gmail[dot]com - Trinh Nguyen
-+ Twitter: [@dangtrinhnt](https://twitter.com/dangtrinhnt)
