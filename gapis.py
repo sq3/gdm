@@ -374,7 +374,8 @@ def get_own_files_by_email(service, user_email):
     files = search_files(service, query)
     return files
 
-
+# add an option to migrate only a specific folder
+# https://developers.google.com/drive/web/search-parameters
 def get_own_files(service):
     query = "'me' in owners and trashed =false"
     files = search_files(service, query)
