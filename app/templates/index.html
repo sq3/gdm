@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Google Drive Migrator migrates GoogleDrive to you GoogleApps Domain">
+  <meta name="author" content="Marc Schnitzius">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+
+  <title>GDrive Migrator</title>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="../static/form.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+      padding-top: 70px;
+    }
+    .dl-starring {
+      margin-bottom: 0;
+    }
+    .caption-overlay {
+      bottom:0;
+      left:0;
+      position: absolute;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+    }
+    .thumbnail-relative {
+      position:relative;
+    }
+  </style>
+
+  {% block style %}{% endblock %}
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Welcome to Google Drive Migrator</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                    alt="">
+                <form class="form-signin">
+                <input type="text" class="form-control" name="migrate_from" placeholder="Migrate from address" required autofocus>
+                <input type="text" class="form-control" name="client-id" placeholder="Client ID" required autofocus>
+                <input type="password" class="form-control" name="client-secret" laceholder="Client secret" required>
+                <input type="text" class="form-control" name="migrate_to" placeholder="Migrate to address" required autofocus>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Migrate</button>
+                <!-- no need for the remember me button
+                <label class="checkbox pull-left">
+                    <input type="checkbox" value="remember-me">
+                    Remember me
+                </label>
+                -->
+                </form>
+            </div>
+            <a href="#" class="text-center new-account">Need help? </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
