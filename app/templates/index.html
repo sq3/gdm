@@ -49,11 +49,11 @@
             <div class="account-wall">
                 <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt="">
-                <form class="form-signin">
-                <input type="text" class="form-control" name="migrate_from" placeholder="Migrate from address" required autofocus>
+                <form class="form-signin" method="post">
+                <input type="text" class="form-control" name="migrate-from" placeholder="Migrate from address" required autofocus>
                 <input type="text" class="form-control" name="client-id" placeholder="Client ID" required autofocus>
-                <input type="password" class="form-control" name="client-secret" laceholder="Client secret" required>
-                <input type="text" class="form-control" name="migrate_to" placeholder="Migrate to address" required autofocus>
+                <input type="password" class="form-control" name="client-secret" placeholder="Client secret" required>
+                <input type="text" class="form-control" name="migrate-to" placeholder="Migrate to address" required autofocus>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Migrate</button>
                 <!-- no need for the remember me button

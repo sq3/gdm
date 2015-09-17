@@ -33,7 +33,7 @@ def service(name=None):
                     )
                 )
 
-        return flask.render_template('index.html')
+    return flask.render_template('index.html')
 
 def run():
     app.run(host='0.0.0.0', port=8080, debug=True)
