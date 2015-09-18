@@ -14,7 +14,7 @@ class Walker(Models):
     __tablename__ = 'walker'
 
     pk = Column(Integer, primary_key=True)
-    from_address = Column(Unicode, nullable=False)
+    from_address = Column(Unicode, unique=True, nullable=False)
     client_id = Column(Unicode, nullable=True)
     client_secret = Column(Unicode, nullable=True)
 
@@ -27,8 +27,9 @@ class Migration(Models):
     started = Column(DateTime, nullable=False)
     finished = Column(DateTime, nullable=False)
     total_files = Column(Integer, nullable=False)
-    duplicated_files = Columen(Integer, nullable=False)
+    duplicated_files = Column(Integer, nullable=False)
 
 
     walker = relationship(Walker, backref=backref('migration', uselist=True,
                         cascade='delete,all'))
+
